@@ -7,9 +7,17 @@ client.on('ready', () => {
 
 
 client.on('message', message => {
+    
   if (message.author === client.user) return;
-  if (message.content.startsWith(process.env.PREFIX + 'ping')) {
-    message.channel.sendMessage('Pong!');
+  
+  if (!message.content.startWith(process.env.PREFIX)) return;
+  
+  var args = message.content.substring(process.env.PREFIX.length).split(" ");
+  
+  switch (args[0].toLowerCase()) {
+      case "ping":
+          message.channel.sendMessage("Pong!");
+          break; 
   }
 });
 
