@@ -5,11 +5,10 @@ client.on('ready', () => {
     console.log('I am ready!');
 });
 
-const prefix = '%';
 
 client.on('message', message => {
   if (message.author === client.user) return;
-  if (message.content.startsWith(prefix + 'ping')) {
+  if (message.content.startsWith(process.env.PREFIX + 'ping')) {
     message.channel.sendMessage('pong');
   }
 });
