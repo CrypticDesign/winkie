@@ -9,7 +9,7 @@ client.on('ready', () => {
 client.on('message', message => {
   if (message.author === client.user) return;
   if (message.content.startsWith(process.env.PREFIX + 'ping')) {
-    message.channel.sendMessage('pong');
+    message.channel.sendMessage('Pong!');
   }
 });
 
