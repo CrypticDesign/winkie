@@ -1,25 +1,24 @@
 const Discord = require('discord.js');
-const client = new Discord.Client();
+const client = new Discord.Client({disableEveryone: true});
 
-client.on('ready', () => {
-    console.log('I am ready!');
+bot.on("ready", async () => {
+    console.log(`${bot.user.username} is online!`);
+    bot.user.setActivity(`Eating Cereal`);
 });
 
-
-client.on('message', message => {
+bot.on("message", async message => {
     
-  if (message.author === client.user) return;
-  
-  if (!message.content.startWith(process.env.PREFIX)) return;
-  
-  var args = message.content.substring(process.env.PREFIX.length).split(" ");
-  
-  switch (args[0].toLowerCase()) {
-      case "ping":
-          message.channel.sendMessage("Pong!");
-          break; 
-  }
+    if (message.author.bot) return;
+    if (message.channel.type === "dm") return; 
+    
+    let prefix = '%';
+    let messageArray = message.content.split(" ");
+    let cmd = messageArray[0];
+    let args = messageArray.slice(1);
+    
+    if (cmd === `${prefix}ping`){
+        message.channel.send("Pong!");
+    }
 });
 
-// THIS  MUST  BE  THIS  WAY
-client.login(process.env.BOT_TOKEN);
+bot.login(process.env.token);
