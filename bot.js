@@ -26,7 +26,7 @@ client.on('message', message => {
         .addField("w!help", "Will give you the current commands of the bot")
         .addField("w!ping", "Pong!")
         .addField("w!fortune [question]", "Get your fortune!")
-        message.channel.send({embed})
+        message.channel.send({embed});
     }
     
     if (msg.startsWith (prefix + 'fortune')) {
