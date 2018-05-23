@@ -14,33 +14,9 @@ client.on('message', message => {
     
     if (message.author.bot) return;
     
-    if (mesg.startsWith (prefix + 'help')) {
-        message.channel.send({embed: {
-    color: 3447003,
-    author: {
-      name: client.user.username,
-      icon_url: client.user.avatarURL
-    },
-    title: "Help",
-    description: "Here's a list of all of Winkie's commands!",
-    fields: [{
-        name: "help",
-        value: "Gives you a list of commands for the bot!"
-      },
-      {
-        name: "ping",
-        value: "Pong!"
-      },
-      {
-        name: "fortune",
-        value: "Find out your fortune with Winkie! (*w!fortune [question]*)"
-      }
-    ],
-    timestamp: new Date(),
-    footer: {
-      icon_url: client.user.avatarURL,
-      text: "Winkie"
-    });
+    if (msg.startsWith (prefix + 'help')) {
+        message.channel.send('**Here is a list of commands for winkie!** \n\n**Help**\nGet a list of commands for winkie!\n\n**Ping**\nPong!\n\n**fortune**\nLet Winkie the Fortune Teller tell you your fortune! (*w!fortune [question]*)');
+    }
     
     msg = message.content.toLowerCase ();
     
