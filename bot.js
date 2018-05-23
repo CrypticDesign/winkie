@@ -20,10 +20,14 @@ client.on('message', message => {
     	message.channel.send('Pong!');
   	}
     
-    if (message.startsWith("say") == true) { //Check if the message send starts with "say"
-        var newMessage = message.replace("say ", ""); //Making a variable where "say " is removed
-        bot.sendMessage({to: channelID, message:newMessage
-    }); //Send the new variable.
+    if (msg.startsWith (prefix + 'help')) {
+        const embed = new Discord.RichEmbed()
+        .setTitle("Commands list:")
+        .addField("w!help", "Will give you the current commands of the bot")
+        .addField("w!ping", "Pong!")
+        .addField("w!fortune [question]", "Get your fortune!")
+        message.channel.send({embed})
+    }
     
     if (msg.startsWith (prefix + 'fortune')) {
         fortuneMessage = message.content.slice (9);
