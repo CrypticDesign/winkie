@@ -14,10 +14,6 @@ client.on('message', message => {
     
     if (message.author.bot) return;
     
-    if (msg.startsWith (prefix + 'help')) {
-        message.channel.send('**Here is a list of commands for winkie!** \n\n**Help**\nGet a list of commands for winkie!\n\n**Ping**\nPong!\n\n**fortune**\nLet Winkie the Fortune Teller tell you your fortune! *w!fortune ~question~*');
-    }
-    
     msg = message.content.toLowerCase ();
     
     if (msg.startsWith (prefix + 'ping')) {
