@@ -14,6 +14,37 @@ client.on('message', message => {
     
     if (message.author.bot) return;
     
+    if (mesg.startsWith (prefix + 'help')) {
+        message.channel.send({embed: {
+    color: 3447003,
+    author: {
+      name: client.user.username,
+      icon_url: client.user.avatarURL
+    },
+    title: "Help",
+    description: "Here's a list of all of Winkie's commands!",
+    fields: [{
+        name: "help",
+        value: "Gives you a list of commands for the bot!"
+      },
+      {
+        name: "ping",
+        value: "Pong!"
+      },
+      {
+        name: "fortune",
+        value: "Find out your fortune with Winkie! (*w!fortune [question]*)"
+      }
+    ],
+    timestamp: new Date(),
+    footer: {
+      icon_url: client.user.avatarURL,
+      text: "Winkie"
+    }
+  }
+});
+    }
+    
     msg = message.content.toLowerCase ();
     
     if (msg.startsWith (prefix + 'ping')) {
