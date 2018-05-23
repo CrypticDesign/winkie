@@ -28,7 +28,16 @@ client.on('message', message => {
         case 1: message.channel.send ('Winkie the fortune teller says **yes!**'); break;
         case 2: message.channel.send ('Winkie the fortune teller says **no!**'); break;
         }
-    }
+     
+     if (msg.startsWith (prefix + 'say')) {
+         const embed = new Discord.RichEmbed()
+         .setColor(0x954D23)
+         .setTitle("Commands List:")
+         .addField("w!help", "Will give you the list of commands")
+         .addField("w!ping", "Pong!")
+         .addField("w!fortune [question]", "Get your fortune!")
+         message.channel.send({embed});
+     }
 });
 
 // THIS  MUST  BE  THIS  WAY
