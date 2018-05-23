@@ -12,6 +12,8 @@ client.on('ready', () => {
 
 client.on('message', message => {
     
+    let args = message.content.slice(prefix.length).trin().split(' ');
+    
     if (message.author.bot) return;
     
     msg = message.content.toLowerCase();
@@ -32,6 +34,12 @@ client.on('message', message => {
     
     if (msg.startsWith (prefix + 'help')) {
         message.channel.send('**List of Commands** \n**w!help** - Gives you a List of Commands \n**w!ping** - Pong! \n**fortune [question]** - Find out the answer to your questions! (BETA)');
+    }
+    
+    if (msg.startsWith (prefix + 'say')) {
+        let say = args.join(' ');
+        message.delete();
+        message.channel.send(say);
     }
     
 });
