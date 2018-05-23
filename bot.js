@@ -1,24 +1,35 @@
-const Discord = require('discord.js');
-const client = new Discord.Client({disableEveryone: true});
+const prefix = "w!";
+const discord = require ('discord.js');
 
-bot.on("ready", async () => {
-    console.log(`${bot.user.username} is online!`);
-    bot.user.setActivity(`Eating Cereal`);
+var client = new discord.Client(); 
+
+const token = "NDEyMzMwMzY2MDE2MjkwODI3.DeZAmw.MAFKh0rkDhHsyQ73E3zsmj8_jWs";
+
+client.on('ready', () => {
+    console.log('I am ready mate!');
+    
 });
 
-bot.on("message", async message => {
+client.on('message', message => {
     
     if (message.author.bot) return;
-    if (message.channel.type === "dm") return; 
     
-    let prefix = '%';
-    let messageArray = message.content.split(" ");
-    let cmd = messageArray[0];
-    let args = messageArray.slice(1);
+    msg = message.content.toLowerCase ();
     
-    if (cmd === `${prefix}ping`){
-        message.channel.send("Pong!");
+    if (msg.startsWith (prefix + 'ping')) {
+    	message.channel.send('Pong!');
+  	}
+    
+    if (msg.startsWith (prefix + 'fortune')) {
+        fortuneMessage = message.content.slice (9);
+        number = 2;
+        var random = Math.floor (Math.random() * (number - 1 + 1)) + 1;
+        switch (random) {
+        case 1: message.channel.send ('Winkie the fortune teller says **yes!**'); break;
+        case 2: message.channel.send ('Winkie the fortune teller says **no!**'); break;
+        }
     }
 });
 
-bot.login(process.env.token);
+// THIS  MUST  BE  THIS  WAY
+client.login (token);
