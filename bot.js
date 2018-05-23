@@ -34,6 +34,10 @@ client.on('message', message => {
         message.channel.send('**List of Commands** \n**w!help** - Gives you a List of Commands \n**w!ping** - Pong! \n**fortune [question]** - Find out the answer to your questions! (BETA)');
     }
     
+    if (msg.startsWith (prefix + 'say')) {
+        message.channel.send(args);
+    }
+    
 });
 
 // THIS  MUST  BE  THIS  WAY
