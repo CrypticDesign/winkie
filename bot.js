@@ -7,8 +7,7 @@ const token = "NDEyMzMwMzY2MDE2MjkwODI3.DeZAmw.MAFKh0rkDhHsyQ73E3zsmj8_jWs";
 
 client.on('ready', () => {
     console.log('I am ready mate!');
-    
-    client.user.setActivity('YouTube', {type: 'WATCHING'});
+
 });
 
 client.on('message', message => {
