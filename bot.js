@@ -40,10 +40,7 @@ client.on('message', message => {
     footer: {
       icon_url: client.user.avatarURL,
       text: "Winkie"
-    }
-  }
-});
-    }
+    });
     
     msg = message.content.toLowerCase ();
     
